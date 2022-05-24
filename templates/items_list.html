@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block style %}
+{{ block.super }}
+<style>.item-card {
+        border: 2px solid blue;
+        height: 100px;
+        display: inline-block;
+    }</style>
+
+{% endblock %}
+
+{% block content %}
+<ol>
+<h2>Список товаров</h2>
+    {% for item in items %}
+    <li class="item-card"> <a href="{% url 'item-page' id=item.id %}">{{item.name}}</a></li>
+    {% endfor %}
+</ol>
+{% endblock %}
